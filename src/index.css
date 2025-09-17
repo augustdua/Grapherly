@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Grapherly Design System - Beautiful and professional AI company branding */
+
+@layer base {
+  :root {
+    /* Grapherly Brand Colors */
+    --background: 0 0% 100%;
+    --foreground: 212 49% 8%;
+    
+    --card: 200 17% 98%;
+    --card-foreground: 212 49% 8%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 212 49% 8%;
+    
+    --primary: 212 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 200 17% 98%;
+    --secondary-foreground: 212 49% 8%;
+    
+    --muted: 205 16% 45%;
+    --muted-foreground: 205 16% 45%;
+    
+    --accent: 200 17% 98%;
+    --accent-foreground: 212 49% 8%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+    
+    --border: 218 39% 91%;
+    --input: 218 39% 91%;
+    --ring: 212 100% 50%;
+    
+    --focus: 212 100% 50%;
+    
+    /* Grapherly specific tokens */
+    --graph-node: 212 49% 8%;
+    --graph-edge: 212 49% 8%;
+    --glass-bg: 0 0% 100%;
+    --glass-border: 218 39% 91%;
+    
+    /* Animation variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --radius: 0.625rem;
+  }
+  
+  .dark {
+    --background: 212 49% 8%;
+    --foreground: 0 0% 98%;
+    
+    --card: 212 45% 12%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 212 45% 12%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 212 100% 60%;
+    --primary-foreground: 212 49% 8%;
+    
+    --secondary: 212 45% 15%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 205 16% 65%;
+    --muted-foreground: 205 16% 65%;
+    
+    --accent: 212 45% 15%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+    
+    --border: 212 30% 25%;
+    --input: 212 30% 25%;
+    --ring: 212 100% 60%;
+    
+    --focus: 212 100% 60%;
+    
+    --graph-node: 0 0% 98%;
+    --graph-edge: 0 0% 98%;
+    --glass-bg: 212 49% 8%;
+    --glass-border: 212 30% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Graph background canvas */
+  .graph-bg {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    cursor: none;
+  }
+  
+  /* Skip link for accessibility */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  
+  .skip-link:focus {
+    left: 4;
+    top: 4;
+    width: auto;
+    height: auto;
+    @apply bg-foreground text-background p-3 rounded-lg z-50;
+  }
+}
+
+@layer components {
+  /* Glass morphism header */
+  .glass-header {
+    background: hsla(var(--glass-bg), 0.8);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid hsl(var(--glass-border));
+  }
+  
+  /* Professional button variants */
+  .btn-grapherly {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-transparent px-4 py-3 font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+  
+  .btn-grapherly-primary {
+    @apply btn-grapherly bg-foreground text-background hover:brightness-[0.98] hover:scale-105 hover:-translate-y-0.5 active:scale-95;
+  }
+  
+  .btn-grapherly-secondary {
+    @apply btn-grapherly bg-transparent border-border text-foreground hover:bg-secondary hover:scale-105 hover:-translate-y-0.5 active:scale-95;
+  }
+  
+  .btn-grapherly-ghost {
+    @apply btn-grapherly bg-transparent border-transparent text-foreground hover:bg-secondary hover:scale-105 hover:-translate-y-0.5 active:scale-95;
+  }
+  
+  /* Container system */
+  .container-grapherly {
+    @apply w-full max-w-[1100px] mx-auto px-5;
+  }
+  
+  .container-narrow {
+    @apply w-full max-w-[800px] mx-auto px-5;
+  }
+  
+  /* Section spacing */
+  .section-grapherly {
+    @apply py-16 border-b border-border last:border-b-0;
+  }
+  
+  /* Typography enhancements */
+  .headline {
+    @apply text-4xl md:text-6xl font-bold leading-[1.15] tracking-tight;
+  }
+  
+  .section-title {
+    @apply text-3xl font-bold leading-tight mb-3;
+  }
+  
+  .tagline {
+    @apply text-muted-foreground max-w-[700px] text-lg;
+  }
+  
+  /* Card system */
+  .card-grapherly {
+    @apply bg-card border border-border rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:scale-[1.02] hover:border-primary/30;
+  }
+  
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out;
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

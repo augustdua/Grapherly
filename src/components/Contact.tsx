@@ -38,7 +38,7 @@ export const Contact = () => {
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-6 items-start">
           <div>
             <p className="text-lg mb-3">
-              Get in touch: <a href="mailto:hello@randomapple.com" className="text-primary hover:underline">hello@randomapple.com</a>
+              Get in touch: <a href="mailto:august@grapherly.com" className="text-primary hover:underline">august@grapherly.com</a>
             </p>
             <p className="text-lg text-muted-foreground">
               Based in Estonia 🇪🇪 · Building globally 🌍

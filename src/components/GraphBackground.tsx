@@ -42,7 +42,7 @@ export const GraphBackground = () => {
     const rand = (min: number, max: number) => Math.random() * (max - min) + min;
     
     const init = () => {
-      const numNodes = Math.floor(Math.random() * 4) + 4; // Random between 4-7
+      const numNodes = 10;
       nodes = new Array(numNodes).fill(0).map(() => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,

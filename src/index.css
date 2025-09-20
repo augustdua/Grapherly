@@ -116,6 +116,7 @@
     height: 100vh;
     z-index: 0;
     cursor: none;
+    pointer-events: none;
   }
   
   /* Skip link for accessibility */
